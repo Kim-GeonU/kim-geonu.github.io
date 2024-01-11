@@ -51,108 +51,121 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-                <p>
-                  I'm interested in 3D computer vision and generative AI.
-                </p>
+                <h2>Research Interestes</h2>
+                <ul>
+                  <li> 3D computer vision </li> 
+                  <li> Generative AI </li>
+                </ul>
               </td>
             </tr>
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <!-- <td style="padding:20px;width:100%;vertical-align:middle"></td> -->
+                <h2 style="padding-left: 15pt; margin-top: 30pt;">Publications</h2>  
+              <!-- </td> -->
+            </tr>
 
+            <!-- <tr> -->
+              <!-- <td style="padding:20px;width:100%;vertical-align:middle"> -->
+                <!-- <h2>Research Interestes</h2>
+                <p>
+                  I'm interested in 3D computer vision and generative AI.
+                </p> -->
+              <!-- </td> -->
+            <!-- </tr> -->
 
+            <tr onmouseout="fprf_stop()" onmouseover="fprf_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='fprf_image'><video  width=100% muted autoplay loop>
+                  <source src="videos/FPRF_teaser.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/smerf.jpg' width=100%>
+                </div>
+                <!-- <script type="text/javascript">
+                  function fprf_start() {
+                    document.getElementById('fprf_image').style.opacity = "1";
+                  }
 
-    <tr onmouseout="fprf_stop()" onmouseover="fprf_start()">
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='fprf_image'><video  width=100% muted autoplay loop>
-          <source src="videos/FPRF_teaser.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/smerf.jpg' width=100%>
-        </div>
-        <!-- <script type="text/javascript">
-          function fprf_start() {
-            document.getElementById('fprf_image').style.opacity = "1";
-          }
+                  function fprf_stop() {
+                    document.getElementById('fprf_image').style.opacity = "0";
+                  }
+                  fprf_stop()
+                </script> -->
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <!-- <a href="https://smerf-3d.github.io/"> -->
+                  <span class="papertitle">FPRF: Feed-Forward Photorealistic Style Transfer of Large-Scale 3D Neural Radiance Fields</span>
+                <!-- </a> -->
+                <br>
+                <strong>GeonU Kim</strong>,
+                <a href="https://kim-youwang.github.io/">Kim Youwang</a>,
+                <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>,
+                <br>
+                <em>AAAI, 2024</em> 
+                <br>
+                <a href="https://kim-geonu.github.io/FPRF/">project page</a>
+                /
+                <!-- <a href="https://www.youtube.com/watch?v=zhO8iUBpnCc">video</a>
+                / -->
+                <a href="#">arXiv</a>
+                <p></p>
+                <p>
+                Stylize neural radiance fields with multiple style refernece images, in a feed-forward manner. 
+                </p>
+              </td>
+            </tr>
+          
+            <tr onmouseout="multi_stop()" onmouseover="multi_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='smerf_image'>
+                    <!-- <video  width=100% muted autoplay loop> -->
+                  <!-- <source src="videos/FPRF_teaser.mp4" type="video/mp4"> -->
+                  <!-- Your browser does not support the video tag. -->
+                  <!-- </video> -->
+                </div>
+                  <img src='images/multi.jpg' width=100%>
+                </div>
+                <!-- <script type="text/javascript">
+                  function multi_start() {
+                    document.getElementById('smerf_image').style.opacity = "1";
+                  }
 
-          function fprf_stop() {
-            document.getElementById('fprf_image').style.opacity = "0";
-          }
-          fprf_stop()
-        </script> -->
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <!-- <a href="https://smerf-3d.github.io/"> -->
-          <span class="papertitle">FPRF: Feed-Forward Photorealistic Style Transfer of Large-Scale 3D Neural Radiance Fields</span>
-        <!-- </a> -->
-        <br>
-        <strong>GeonU Kim</strong>,
-        <a href="https://kim-youwang.github.io/">Kim Youwang</a>,
-        <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>,
-		    <br>
-        <em>AAAI, 2024</em> 
-        <br>
-        <a href="https://kim-geonu.github.io/FPRF/">project page</a>
-        /
-        <!-- <a href="https://www.youtube.com/watch?v=zhO8iUBpnCc">video</a>
-        / -->
-        <a href="#">arXiv</a>
-        <p></p>
-        <p>
-        Stylize neural radiance fields with multiple style refernece images, in a feed-forward manner. 
-        </p>
-      </td>
-    </tr>
-	
-    <tr onmouseout="multi_stop()" onmouseover="multi_start()">
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='smerf_image'>
-            <!-- <video  width=100% muted autoplay loop> -->
-          <!-- <source src="videos/FPRF_teaser.mp4" type="video/mp4"> -->
-          <!-- Your browser does not support the video tag. -->
-          <!-- </video> -->
-        </div>
-          <img src='images/multi.jpg' width=100%>
-        </div>
-        <!-- <script type="text/javascript">
-          function multi_start() {
-            document.getElementById('smerf_image').style.opacity = "1";
-          }
-
-          function multi_stop() {
-            document.getElementById('smerf_image').style.opacity = "0";
-          }
-          multi_stop()
-        // </script> -->
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <!-- <a href="https://smerf-3d.github.io/"> -->
-          <span class="papertitle">Multi-Person 3D Pose and Shape Estimation via Inverse Kinematics and Refinement</span>
-        <!-- </a> -->
-        <br>
-        <a href="https://sites.google.com/view/junuk-cha/%ED%99%88?authuser=0">Junuk Cha</a>,
-        Muhammad Saqlain,
-        <strong>GeonU Kim</strong>,
-        <a href="https://cvlab.dgist.ac.kr/members/mingyu-shin/">Mingyu Shin</a>,
-        <a href="https://sites.google.com/site/bsrvision00/">Seungryul Baek</a>,
-		    <br>
-        <em>ECCV</em>, 2022
-        <br>
-        <!-- <a href="https://kim-geonu.github.io/FPRF/">project page</a> -->
-        <!-- / -->
-        <!-- <a href="https://www.youtube.com/watch?v=zhO8iUBpnCc">video</a>
-        / -->
-        <a href="https://arxiv.org/abs/2210.13529">arXiv</a>
-        /
-        <a href="https://github.com/JunukCha/MultiPerson?tab=readme-ov-file">code</a>
-        <p></p>
-        <p>
-        Reconstruct multi-person human meshes from a single image with inverse kinematics and relation-aware refinement. 
-        </p>
-      </td>
-    </tr>
+                  function multi_stop() {
+                    document.getElementById('smerf_image').style.opacity = "0";
+                  }
+                  multi_stop()
+                // </script> -->
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <!-- <a href="https://smerf-3d.github.io/"> -->
+                  <span class="papertitle">Multi-Person 3D Pose and Shape Estimation via Inverse Kinematics and Refinement</span>
+                <!-- </a> -->
+                <br>
+                <a href="https://sites.google.com/view/junuk-cha/%ED%99%88?authuser=0">Junuk Cha</a>,
+                Muhammad Saqlain,
+                <strong>GeonU Kim</strong>,
+                <a href="https://cvlab.dgist.ac.kr/members/mingyu-shin/">Mingyu Shin</a>,
+                <a href="https://sites.google.com/site/bsrvision00/">Seungryul Baek</a>,
+                <br>
+                <em>ECCV</em>, 2022
+                <br>
+                <!-- <a href="https://kim-geonu.github.io/FPRF/">project page</a> -->
+                <!-- / -->
+                <!-- <a href="https://www.youtube.com/watch?v=zhO8iUBpnCc">video</a>
+                / -->
+                <a href="https://arxiv.org/abs/2210.13529">arXiv</a>
+                /
+                <a href="https://github.com/JunukCha/MultiPerson?tab=readme-ov-file">code</a>
+                <p></p>
+                <p>
+                Reconstruct multi-person human meshes from a single image with inverse kinematics and relation-aware refinement. 
+                </p>
+              </td>
+            </tr>
     
             
           </tbody></table>
