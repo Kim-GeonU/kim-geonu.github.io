@@ -1,3 +1,173 @@
-Hello World
-<!-- <a href="파일명.확장자">파일이동</a> -->
-<a href="./FPRF/index.html">FPRF</a>
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>GeonU Kim</title>
+
+    <meta name="author" content="Jon Barron">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  GeonU Kim
+                </p>
+                <p class="email" style="text-align: center; margin-top: -16pt;">
+                  <em>
+                    gukim@postech.ac.kr
+                  </em>
+                </p>
+                <p class='intro'>
+                  I am a master’s student at <a href="https://ami.postech.ac.kr/">AMILab</a> in Grad. School of Artificial Intelligence at POSTECH, supervised by <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Prof. Dr. Tae-Hyun Oh.</a>
+                  I received my bachelor's degree in Computer Science from UNIST.
+                </p>
+                <p style="text-align:center">
+                  <!-- <a href="mailto:jonbarron@gmail.com">Email</a> &nbsp;/&nbsp; -->
+                  <a href="https://www.overleaf.com/read/yghgxhwgdxrz#69f947">CV</a>
+                  <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp;
+				  <a href="https://www.threads.net/@jonbarron">Threads</a> &nbsp;/&nbsp;
+				  <a href="https://bsky.app/profile/jonbarron.bsky.social">Bluesky</a> &nbsp;/&nbsp;
+                  <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/jonbarron/">Github</a>  -->
+                </p>
+              </td>
+              <td style="padding:2.5%;width:25%;max-width:40%">
+                <!-- <a href="images/profile.jpeg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/JonBarron_circle.jpg" class="hoverZoomLink"></a> -->
+                <img style="width:100%;max-width:100%;object-fit: cover;" alt="profile photo" src="images/profile.jpeg">
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Research</h2>
+                <p>
+                  I'm interested in 3D computer vision and generative AI.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+
+
+    <tr onmouseout="fprf_stop()" onmouseover="fprf_start()">
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='fprf_image'><video  width=100% muted autoplay loop>
+          <source src="videos/FPRF_teaser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/smerf.jpg' width=100%>
+        </div>
+        <!-- <script type="text/javascript">
+          function fprf_start() {
+            document.getElementById('fprf_image').style.opacity = "1";
+          }
+
+          function fprf_stop() {
+            document.getElementById('fprf_image').style.opacity = "0";
+          }
+          fprf_stop()
+        </script> -->
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <!-- <a href="https://smerf-3d.github.io/"> -->
+          <span class="papertitle">FPRF: Feed-Forward Photorealistic Style Transfer of Large-Scale 3D Neural Radiance Fields</span>
+        <!-- </a> -->
+        <br>
+        <strong>GeonU Kim</strong>,
+        <a href="https://kim-youwang.github.io/">Kim Youwang</a>,
+        <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>,
+		    <br>
+        <em>AAAI, 2024</em> 
+        <br>
+        <a href="https://kim-geonu.github.io/FPRF/">project page</a>
+        /
+        <!-- <a href="https://www.youtube.com/watch?v=zhO8iUBpnCc">video</a>
+        / -->
+        <a href="#">arXiv</a>
+        <p></p>
+        <p>
+        Stylize neural radiance fields with multiple style refernece images, in a feed-forward manner. 
+        </p>
+      </td>
+    </tr>
+	
+    <tr onmouseout="multi_stop()" onmouseover="multi_start()">
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='smerf_image'>
+            <!-- <video  width=100% muted autoplay loop> -->
+          <!-- <source src="videos/FPRF_teaser.mp4" type="video/mp4"> -->
+          <!-- Your browser does not support the video tag. -->
+          <!-- </video> -->
+        </div>
+          <img src='images/multi.jpg' width=100%>
+        </div>
+        <!-- <script type="text/javascript">
+          function multi_start() {
+            document.getElementById('smerf_image').style.opacity = "1";
+          }
+
+          function multi_stop() {
+            document.getElementById('smerf_image').style.opacity = "0";
+          }
+          multi_stop()
+        // </script> -->
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <!-- <a href="https://smerf-3d.github.io/"> -->
+          <span class="papertitle">Multi-Person 3D Pose and Shape Estimation via Inverse Kinematics and Refinement</span>
+        <!-- </a> -->
+        <br>
+        <a href="https://sites.google.com/view/junuk-cha/%ED%99%88?authuser=0">Junuk Cha</a>,
+        Muhammad Saqlain,
+        <strong>GeonU Kim</strong>,
+        <a href="https://cvlab.dgist.ac.kr/members/mingyu-shin/">Mingyu Shin</a>,
+        <a href="https://sites.google.com/site/bsrvision00/">Seungryul Baek</a>,
+		    <br>
+        <em>ECCV</em>, 2022
+        <br>
+        <!-- <a href="https://kim-geonu.github.io/FPRF/">project page</a> -->
+        <!-- / -->
+        <!-- <a href="https://www.youtube.com/watch?v=zhO8iUBpnCc">video</a>
+        / -->
+        <a href="https://arxiv.org/abs/2210.13529">arXiv</a>
+        /
+        <a href="https://github.com/JunukCha/MultiPerson?tab=readme-ov-file">code</a>
+        <p></p>
+        <p>
+        Reconstruct human mesh from a single image by using inverse kinematics and relation-aware refinement. 
+        </p>
+      </td>
+    </tr>
+    
+            
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:right;font-size:small;">
+                  This website is based on <a href="https://jonbarron.info/">this page</a>. We Jon Barron for kindly open-sourcing the source code.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
