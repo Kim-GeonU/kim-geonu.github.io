@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="FPRF, NeRF, 3D Photorealistic Style Transfer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPRF: Feed-Forward Photorealistic Style Transfer of Large-Scale 3D Neural Radiance Fields</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">FPRF: Feed-Forward Photorealistic Style Transfer of Large-Scale 3D Neural Radiance Fields</h1>
+          <h4 class="title is-4">AAAI 2024</h4>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <!-- <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span> -->
+              <a href="https://kim-geonu.github.io/">GeonU Kim</a><sup>1</sup>,</span> 
+            <span class="author-block">
+              <a href="https://kim-youwang.github.io/">Kim Youwang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>1,2</sup>
+            </span>
+            <!-- <span class="author-block">
+              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+            </span> -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup><a href="https://ami.postech.ac.kr/"> AMI Lab, POSTECH</a></span>
+            <span class="author-block"><sup>2</sup>Yonsei University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="static/pdf/FPRF.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2401.05516"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/postech-ami/FPRF.git"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a> 
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/pp_demo_main.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        FPRF performs 3D feed-forward style transfer with multiple style reference images.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present FPRF, a feed-forward photorealistic style transfer method for large-scale 3D neural radiance fields.
+            FPRF stylizes large-scale 3D scenes with arbitrary, multiple style reference images without additional optimization 
+            while preserving multi-view appearance consistency. Prior arts required tedious per-style/-scene optimization and 
+            were limited to small-scale 3D scenes. FPRF efficiently stylizes large-scale 3D scenes by introducing a style-decomposed 
+            3D neural radiance field, which inherits AdaIN’s feed-forward stylization machinery, supporting arbitrary style reference 
+            images. 
+          </p>
+          <p>
+            Furthermore, FPRF supports multi-reference stylization with the semantic correspondence matching and local AdaIN, which 
+            adds diverse user control for 3D scene styles. FPRF also preserves multi-view consistency by applying semantic matching 
+            and style transfer processes directly onto queried features in 3D space.
+            In experiments, we demonstrate that FPRF achieves favorable photorealistic quality 3D scene stylization for large-scale 
+            scenes with diverse reference images.
+          </p>
+        </div>
+        <div class="publication-video", style="margin-bottom: -30px">
+          <img src="./static/images/property.png"
+          class="interpolation-image"
+          alt="Interpolate start reference image."/>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper pipelines. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3", style="margin-top: -180px;">Training 3D Dual Feature Fields</h2>
+        <div class="publication-video", style="margin-bottom: -30px">
+          <img src="./static/images/pipeline_training.png"
+          class="interpolation-image"
+          alt="Interpolate start reference image."/>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Given a set of scene images and corresponding VGG and DINO features, FPRF learns 
+            a <b>scene content field</b> and a <b>scene semantic field</b> via neural feature 
+            distillation. The scene content field is trained with the <b>pre-trained color decoder</b> 
+            being compatible with AdaIN, which allows feed-forward photorealistic style transfer with 
+            an efficient single-stage training.
+          </p>
+        </div>
+
+        <h2 class="title is-3", style="margin-top: 40px;">Semantic Matching & Local AdaIN</h2>
+        <div class="publication-video", style="margin-bottom: -100px">
+          <img src="./static/images/pipeline_inference.png"
+          class="interpolation-image"
+          alt="Interpolate start reference image."/>
+        </div>
+        <div class="content has-text-justified">
+          <p> 
+            We stylize the large-scale 3D scene with a set of arbitrary reference images, via <b>semantic matching</b> and <b>local AdaIN</b>.
+            We compose a <b>style dictionary</b> consisting of local semantic/style code 
+            pairs extracted from the clustered reference images. 
+            Using the style dictionary and the semantic features from the scene, 
+            we find semantic correspondence between the refernece images and the scene. With the semantic 
+            correspondence, we construct semantic-weighted style code and perform local AdaIN for semantic-aware 
+            style transfer in a feed-forward manner.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper pipelines. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">More Results</h2>
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-4">The LLFF dataset</h3>
+        <!-- <div class="content has-text-justified">
+          <p>
+            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
+            viewpoint such as a stabilized camera by playing back the training deformations.
+          </p>
+        </div> -->
+        <div class="container is-max-desktop", style="margin-top:-40pt">
+          <div class="hero-body">
+            <img src="./static/images/LLFF_titles.png"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+            <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
+              <source src="./static/videos/videos_LLFF/LLFF_flower.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:5pt">
+              <source src="./static/videos/videos_LLFF/LLFF_horns.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:5pt">
+              <source src="./static/videos/videos_LLFF/LLFF_room.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{kim2024fprf,
+      title={{FPRF}: Feed-Forward Photorealistic Style Transfer of Large-Scale {3D} Neural Radiance Fields}, 
+      author={GeonU Kim and Kim Youwang and Tae-Hyun Oh},
+      year={2024},
+      booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            The website is based on <a href="https://nerfies.github.io/">Nerfies.</a> We thank Keunhong Park for open-sourcing the source code.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
