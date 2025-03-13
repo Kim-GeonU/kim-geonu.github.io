@@ -49,8 +49,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">FPRF: Feed-Forward Photorealistic Style Transfer of Large-Scale 3D Neural Radiance Fields</h1>
-          <h4 class="title is-4">AAAI 2024</h4>
+          <h1 class="title is-2 publication-title">FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting</h1>
+          <!-- <h4 class="title is-4">AAAI 2024</h4> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <!-- <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span> -->
@@ -58,7 +58,9 @@
             <span class="author-block">
               <a href="https://kim-youwang.github.io/">Kim Youwang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>1,2</sup>
+              <a href="https://hyoseok1223.github.io/">Lee Hyoseok</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>2</sup>
             </span>
             <!-- <span class="author-block">
               <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
@@ -75,8 +77,8 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup><a href="https://ami.postech.ac.kr/"> AMI Lab, POSTECH</a></span>
-            <span class="author-block"><sup>2</sup>Yonsei University</span>
+            <span class="author-block"><sup>1</sup> POSTECH</a></span>
+            <span class="author-block"><sup>2</sup>KAIST</span>
           </div>
 
           <div class="column has-text-centered">
@@ -103,7 +105,7 @@
               <!-- Video Link. -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/postech-ami/FPRF.git"
+                <a href="https://github.com/kaist-ami/FPGS.git"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -133,11 +135,11 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/pp_demo_main.mp4"
+        <source src="./static/videos/Untitled.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        FPRF performs 3D feed-forward style transfer with multiple style reference images.
+        FPGS performs feed-forward semantic-aware photorealistic style transfer of Gaussian Splatting.
       </h2>
     </div>
   </div>
@@ -152,22 +154,23 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present FPRF, a feed-forward photorealistic style transfer method for large-scale 3D neural radiance fields.
-            FPRF stylizes large-scale 3D scenes with arbitrary, multiple style reference images without additional optimization 
-            while preserving multi-view appearance consistency. Prior arts required tedious per-style/-scene optimization and 
-            were limited to small-scale 3D scenes. FPRF efficiently stylizes large-scale 3D scenes by introducing a style-decomposed 
-            3D neural radiance field, which inherits AdaIN’s feed-forward stylization machinery, supporting arbitrary style reference 
-            images. 
+            We present FPGS, a feed-forward photorealistic style transfer method of large-scale radiance fields 
+            represented by Gaussian Splatting. FPGS, stylizes large-scale 3D scenes with arbitrary, multiple style 
+            reference images without additional optimization while preserving multi-view consistency and real-time 
+            rendering speed of 3D Gaussians. Prior arts required tedious per-style optimization or time-consuming 
+            per-scene training stage and were limited to small-scale 3D scenes. FPGS efficiently stylizes large-scale 
+            3D scenes by introducing a style-decomposed 3D feature field, which inherits AdaIN's feed-forward stylization 
+            machinery, supporting arbitrary style reference images. 
           </p>
           <p>
-            Furthermore, FPRF supports multi-reference stylization with the semantic correspondence matching and local AdaIN, which 
-            adds diverse user control for 3D scene styles. FPRF also preserves multi-view consistency by applying semantic matching 
-            and style transfer processes directly onto queried features in 3D space.
-            In experiments, we demonstrate that FPRF achieves favorable photorealistic quality 3D scene stylization for large-scale 
-            scenes with diverse reference images.
+            Furthermore, FPGS supports multi-reference stylization with the semantic correspondence matching and 
+            local AdaIN, which adds diverse user control for 3D scene styles. FPGS also preserves multi-view consistency 
+            by applying semantic matching and style transfer processes directly onto queried features in 3D space. 
+            In experiments, we demonstrate that FPGS achieves favorable photorealistic quality scene stylization for 
+            large-scale static and dynamic 3D scenes with diverse reference images.
           </p>
         </div>
-        <div class="publication-video", style="margin-bottom: -30px">
+        <div class="publication-video", style="margin-bottom: -210px">
           <img src="./static/images/property.png"
           class="interpolation-image"
           alt="Interpolate start reference image."/>
@@ -179,24 +182,23 @@
     <!-- Paper pipelines. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3", style="margin-top: -180px;">Training 3D Dual Feature Fields</h2>
-        <div class="publication-video", style="margin-bottom: -30px">
+        <!-- <h2 class="title is-3", style="margin-top: -180px;">Training Feature Embedded Gaussians</h2>
+        <div class="publication-video", style="margin-bottom: -230px">
           <img src="./static/images/pipeline_training.png"
           class="interpolation-image"
           alt="Interpolate start reference image."/>
         </div>
         <div class="content has-text-justified">
           <p>
-            Given a set of scene images and corresponding VGG and DINO features, FPRF learns 
+            Given a set of scene images, FPGS learns 
             a <b>scene content field</b> and a <b>scene semantic field</b> via neural feature 
             distillation. The scene content field is trained with the <b>pre-trained color decoder</b> 
-            being compatible with AdaIN, which allows feed-forward photorealistic style transfer with 
-            an efficient single-stage training.
+            being compatible with AdaIN, which allows feed-forward photorealistic style transfer.
           </p>
-        </div>
+        </div> -->
 
         <h2 class="title is-3", style="margin-top: 40px;">Semantic Matching & Local AdaIN</h2>
-        <div class="publication-video", style="margin-bottom: -100px">
+        <div class="publication-video", style="margin-bottom: -160px">
           <img src="./static/images/pipeline_inference.png"
           class="interpolation-image"
           alt="Interpolate start reference image."/>
@@ -236,21 +238,21 @@
         </div> -->
         <div class="container is-max-desktop", style="margin-top:-40pt">
           <div class="hero-body">
-            <img src="./static/images/LLFF_titles.png"
+            <!-- <img src="./static/images/LLFF_titles.png"
             class="interpolation-image"
-            alt="Interpolate start reference image."/>
+            alt="Interpolate start reference image."/> -->
             <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
-              <source src="./static/videos/videos_LLFF/LLFF_flower.mp4"
+              <source src="./static/videos/videos_LLFF/LLFF_FPGS.mp4"
                       type="video/mp4">
             </video>
-            <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:5pt">
+            <!-- <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:5pt">
               <source src="./static/videos/videos_LLFF/LLFF_horns.mp4"
                       type="video/mp4">
             </video>
             <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:5pt">
               <source src="./static/videos/videos_LLFF/LLFF_room.mp4"
                       type="video/mp4">
-            </video>
+            </video> -->
           </div>
         </div>
         <!--/ Re-rendering. -->
