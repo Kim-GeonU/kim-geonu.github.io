@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Feed-forward semantic aware style transfer of Gaussian Sapltting.">
-  <meta name="keywords" content="FPRF, NeRF, 3D Photorealistic Style Transfer">
+        content="Reflection-aware Generative Novel View Synthesis.">
+  <meta name="keywords" content="Novel view syntehsis, mirror reflection, generative model">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting</title>
+  <title>Ref-GeNVS: Reflection-aware Generative Novel View Synthesis</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -49,18 +49,16 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">Ref-GeNVS</h1>
-          <h4 class="title is-4">IJCV 2026</h4>
+          <h1 class="title is-2 publication-title">Reflection-aware Generative Novel View Synthesis</h1>
+          <h4 class="title is-4">ECCV 2026</h4>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <!-- <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span> -->
-              <a href="https://kim-geonu.github.io/">GeonU Kim</a><sup>1</sup>,</span> 
+              <a href="https://kim-geonu.github.io/">GeonU Kim</a>,</span> 
             <span class="author-block">
-              <a href="https://kim-youwang.github.io/">Kim Youwang</a><sup>1</sup>,</span>
+              <a href="https://shin-dong-yeon.github.io/">Shin Dong-Yeon</a>,</span>
             <span class="author-block">
-              <a href="https://hyoseok1223.github.io/">Lee Hyoseok</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>2</sup>
+              <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>
             </span>
             <!-- <span class="author-block">
               <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
@@ -77,8 +75,7 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup> POSTECH</a></span>
-            <span class="author-block"><sup>2</sup>KAIST</span>
+            <span class="author-block">KAIST</span>
           </div>
 
           <div class="column has-text-centered">
@@ -105,7 +102,7 @@
               <!-- Video Link. -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/kaist-ami/FPGS.git"
+                <a href="https://github.com/kaist-ami/Ref-GeNVS.git"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -134,19 +131,16 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/Untitled.mp4"
+      <video id="teaser" autoplay muted loop playsinline controls height="100%">
+        <source src="./static/videos/teaser.mp4"
                 type="video/mp4">
       </video>
-      <h2 class="subtitle has-text-centered">
-        FPGS performs feed-forward semantic-aware photorealistic style transfer of Gaussian Splatting.
-      </h2>
     </div>
   </div>
 </section>
 
 
-<section class="section">
+<section class="section abstract-section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -154,27 +148,26 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present FPGS, a feed-forward photorealistic style transfer method of large-scale radiance fields 
-            represented by Gaussian Splatting. FPGS, stylizes large-scale 3D scenes with arbitrary, multiple style 
-            reference images without additional optimization while preserving multi-view consistency and real-time 
-            rendering speed of 3D Gaussians. Prior arts required tedious per-style optimization or time-consuming 
-            per-scene training stage and were limited to small-scale 3D scenes. FPGS efficiently stylizes large-scale 
-            3D scenes by introducing a style-decomposed 3D feature field, which inherits AdaIN's feed-forward stylization 
-            machinery, supporting arbitrary style reference images. 
+            We propose Ref-GeNVS, a training-free, reflection-aware method for generative novel view synthesis (NVS) 
+            in mirror scenes. Existing multi-view diffusion models often fail to recognize the mirror in the scene 
+            and cannot exploit reflected content for scene generation. To fix this issue without additional training, 
+            our key idea is to treat a mirror image as two complementary views. From input images, we estimate the mirror 
+            plane and reflect camera poses to form virtual views. Based on this virtual view setup, we propose a 
+            two-stage generation method consisting of Mirror-gated attention and Reflection injection, which enables 
+            reflection-consistent NVS by explicitly leveraging reflection relationships in a multi-view diffusion model. 
           </p>
           <p>
-            Furthermore, FPGS supports multi-reference stylization with the semantic correspondence matching and 
-            local AdaIN, which adds diverse user control for 3D scene styles. FPGS also preserves multi-view consistency 
-            by applying semantic matching and style transfer processes directly onto queried features in 3D space. 
-            In experiments, we demonstrate that FPGS achieves favorable photorealistic quality scene stylization for 
-            large-scale static and dynamic 3D scenes with diverse reference images.
+            Ref-GeNVS inherits the strong generalizability of the multi-view diffusion backbone, while it does not require 
+            finetuning. On synthetic and real scenes including mirrors, Ref-GeNVS outperforms recent generative NVS methods 
+            by generating reflection-consistent and contextually coherent novel views, revealing scene structure visible 
+            only through mirrors.
           </p>
         </div>
-        <div class="publication-video", style="margin-bottom: -210px">
+        <!-- <div class="publication-video", style="margin-bottom: -210px">
           <img src="./static/images/property.png"
           class="interpolation-image"
           alt="Interpolate start reference image."/>
-        </div>
+        </div> -->
       </div>
     </div>
     <!--/ Abstract. -->
@@ -197,21 +190,32 @@
           </p>
         </div> -->
 
-        <h2 class="title is-3", style="margin-top: 40px;">Semantic Matching & Local AdaIN</h2>
-        <div class="publication-video", style="margin-bottom: -160px">
-          <img src="./static/images/pipeline_inference.png"
+        <h2 class="title is-3", style="margin-top: 40px;">Key Idea: Reflected View Acquisition & Conditioning</h2>
+        <div class="publication-video key-idea-image">
+          <img src="./static/images/key_idea.png"
           class="interpolation-image"
-          alt="Interpolate start reference image."/>
+          alt="Interpolate start reference image.", />
         </div>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified", style="margin-top: -120px;">
           <p> 
-            We stylize the large-scale 3D scene with a set of arbitrary reference images, via <b>semantic matching</b> and <b>local AdaIN</b>.
-            We compose a <b>style dictionary</b> consisting of local semantic/style code 
-            pairs extracted from the clustered reference images. 
-            Using the style dictionary and the semantic features from the scene, 
-            we find semantic correspondence between the refernece images and the scene. With the semantic 
-            correspondence, we construct semantic-weighted style code and perform local AdaIN for semantic-aware 
-            style transfer in a feed-forward manner.
+            We treat a mirror image as two complementary views to generate the scene reflected on the mirror. 
+            To use reflections as auxiliary cues, we first estimate the plane equation of the mirror in the scene, 
+            and reflect camera poses of input views to the mirror to construct virtual reflected views.
+          </p>
+        </div>
+
+        <h2 class="title is-3", style="margin-top: 40px;">Training-free Two-stage Pipeline</h2>
+        <div class="publication-video pipeline-image">
+          <img src="./static/images/pipeline_horizon.png"
+          class="interpolation-image"
+          alt="Interpolate start reference image.", />
+        </div>
+        <div class="content has-text-justified", style="margin-top: -280px;">
+          <p> 
+            <b>Stage 1</b> generates target views with mirror-masked input images and reflected virtual views while restricting conditioning to the mirror
+            regions of the reflected views using Mirror-gated attention. <b>Stage 2</b> completes the
+            mirror surface via Reflection injection by injecting features from the reflected
+            target poses into the mirror region at each denoising step.
           </p>
         </div>
       </div>
@@ -220,6 +224,125 @@
   </div>
 </section>
 
+<section class="section novel-view-results">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Novel View Synthesis Results</h2>
+
+        <h3 class="title is-4">Sparse-view novel view synthesis</h3>
+        <div id="sparse-results-slider" class="video-slider video-slider--sparse">
+          <input type="radio" name="sparse-slider" id="sparse-slide-1" checked>
+          <input type="radio" name="sparse-slider" id="sparse-slide-2">
+          <input type="radio" name="sparse-slider" id="sparse-slide-3">
+          <input type="radio" name="sparse-slider" id="sparse-slide-4">
+          <input type="radio" name="sparse-slider" id="sparse-slide-5">
+
+          <div class="video-slider__slides">
+            <div class="video-slider__overflow">
+              <div class="video-slider__track">
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/sparse2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/sparse3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/sparse4.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/sparse1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/sparse5.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-slider__controls">
+            <label class="video-slider__control video-slider__control--next" for="sparse-slide-2"></label>
+            <label class="video-slider__control video-slider__control--next" for="sparse-slide-3"></label>
+            <label class="video-slider__control video-slider__control--next" for="sparse-slide-4"></label>
+            <label class="video-slider__control video-slider__control--next" for="sparse-slide-5"></label>
+            <label class="video-slider__control video-slider__control--next" for="sparse-slide-1"></label>
+
+            <label class="video-slider__control video-slider__control--prev" for="sparse-slide-5"></label>
+            <label class="video-slider__control video-slider__control--prev" for="sparse-slide-1"></label>
+            <label class="video-slider__control video-slider__control--prev" for="sparse-slide-2"></label>
+            <label class="video-slider__control video-slider__control--prev" for="sparse-slide-3"></label>
+            <label class="video-slider__control video-slider__control--prev" for="sparse-slide-4"></label>
+          </div>
+
+          <div class="video-slider__bullets">
+            <label for="sparse-slide-1"></label>
+            <label for="sparse-slide-2"></label>
+            <label for="sparse-slide-3"></label>
+            <label for="sparse-slide-4"></label>
+            <label for="sparse-slide-5"></label>
+          </div>
+        </div> 
+
+        <h3 class="title is-4 novel-view-subtitle">Single-view novel view synthesis</h3>
+        <div id="single-results-slider" class="video-slider video-slider--single">
+          <input type="radio" name="single-slider" id="single-slide-1" checked>
+          <input type="radio" name="single-slider" id="single-slide-2">
+          <input type="radio" name="single-slider" id="single-slide-3">
+
+          <div class="video-slider__slides">
+            <div class="video-slider__overflow">
+              <div class="video-slider__track">
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/single3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/single1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-slider__slide">
+                  <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="./static/videos/single2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-slider__controls">
+            <label class="video-slider__control video-slider__control--next" for="single-slide-2"></label>
+            <label class="video-slider__control video-slider__control--next" for="single-slide-3"></label>
+            <label class="video-slider__control video-slider__control--next" for="single-slide-1"></label>
+
+            <label class="video-slider__control video-slider__control--prev" for="single-slide-3"></label>
+            <label class="video-slider__control video-slider__control--prev" for="single-slide-1"></label>
+            <label class="video-slider__control video-slider__control--prev" for="single-slide-2"></label>
+          </div>
+
+          <div class="video-slider__bullets">
+            <label for="single-slide-1"></label>
+            <label for="single-slide-2"></label>
+            <label for="single-slide-3"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -227,103 +350,33 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Applications</h2>
-        <h3 class="title is-4">4D style transfer</h3>
+        <h3 class="title is-4">3D reconstruction</h3>
         <div class="container is-max-desktop", style="margin-top:-20pt">
           <div class="hero-body">
             <!-- <img src="./static/images/LLFF_titles.png"
               class="interpolation-image"
               alt="Interpolate start reference image."/> -->
-              <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
-                <source src="./static/videos/videos_4d/4d_1.mp4"
-                type="video/mp4">
-              </video>
+              <img src="./static/images/3d_recon_3.png"
+              class="application-image"
+              alt="Interpolate start reference image.", />
             </div>
+
             
           </div>
-        <h3 class="title is-4", style="margin-top:-25pt">Multi-reference style transfer</h3>
+        <h3 class="title is-4", style="margin-top:-25pt">Distorted mirror</h3>
         <div class="container is-max-desktop", style="margin-top:-20pt">
           <div class="hero-body">
             <!-- <img src="./static/images/LLFF_titles.png"
               class="interpolation-image"
               alt="Interpolate start reference image."/> -->
-              <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
-                <source src="./static/videos/multi_reference/multi_reference.mp4"
-                type="video/mp4">
+              <img src="./static/images/distortion_ver2.png"
+              class="application-image"
+              alt="Interpolate start reference image.", />
               </video>
 
             </div>
             
           </div>
-        <h3 class="title is-4", style="margin-top:-25pt">Scribble-based style transfer</h3>
-        <div class="container is-max-desktop", style="margin-top:-20pt">
-          <div class="hero-body">
-            <!-- <img src="./static/images/LLFF_titles.png"
-              class="interpolation-image"
-              alt="Interpolate start reference image."/> -->
-              <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
-                <source src="./static/videos/scribble/scribble.mp4"
-                type="video/mp4">
-              </video>
-
-            </div>
-          </div>
-
-
-        <h2 class="title is-3">More Results</h2>
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">The LLFF dataset</h3>
-        <!-- <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div> -->
-        <div class="container is-max-desktop", style="margin-top:-40pt">
-          <div class="hero-body">
-            <!-- <img src="./static/images/LLFF_titles.png"
-            class="interpolation-image"
-            alt="Interpolate start reference image."/> -->
-            <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
-              <source src="./static/videos/videos_LLFF/LLFF_FPGS.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <h3 class="title is-4">The BlockNeRF dataset</h3>
-          <!-- <div class="content has-text-justified">
-            <p>
-              Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-              viewpoint such as a stabilized camera by playing back the training deformations.
-            </p>
-          </div> -->
-          <div class="container is-max-desktop", style="margin-top:-20pt">
-            <div class="hero-body">
-              <!-- <img src="./static/images/LLFF_titles.png"
-                class="interpolation-image"
-                alt="Interpolate start reference image."/> -->
-                <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
-                  <source src="./static/videos/videos_large_scale/block_nerf.mp4"
-                  type="video/mp4">
-                </video>
-              </div>
-              
-            </div>
-
-            <h3 class="title is-4">The Mip-360, Tank & Temples dataset</h3>
-
-            <div class="hero-body">
-              <!-- <img src="./static/images/LLFF_titles.png"
-                class="interpolation-image"
-                alt="Interpolate start reference image."/> -->
-                <video id="teaser" autoplay muted loop playsinline height="100%", style="margin-top:-15pt">
-                  <source src="./static/videos/unbounded/unbounded.mp4"
-                  type="video/mp4">
-                </video>
-              </div>
-            <!--/ Re-rendering. -->
-            
-          </div>
-          This is an extension of our prior work, <a href="https://kim-geonu.github.io/FPRF/">FPRF</a> 
     </div>
     <!--/ Animation. -->
 
@@ -335,16 +388,13 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-      @misc{kim2025fpgsfeedforwardsemanticawarephotorealistic,
-        title={FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting}, 
-        author={GeonU Kim and Kim Youwang and Lee Hyoseok and Tae-Hyun Oh},
-        year={2025},
-        eprint={2503.09635},
-        archivePrefix={arXiv},
-        primaryClass={cs.GR},
-        url={https://arxiv.org/abs/2503.09635}, 
-  }
-}</code></pre>
+      @inproceedings{kim2026refgenvs,
+        title={Reflection-aware Generative Novel View Synthesis}, 
+        author={GeonU Kim and Shin Dong-Yeon and Tae-Hyun Oh},
+        year={2026},
+        booktitle={European Conference on Computer Vision}
+    }
+</code></pre>
   </div>
 </section>
 
